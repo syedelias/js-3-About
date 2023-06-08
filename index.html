@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="About" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <title>About</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: rgb(220, 225, 231);
+      }
+      .header {
+        text-align: center;
+        font-size: 20px;
+        padding: 70px 20px;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .btn {
+        margin: auto 40px;
+        text-transform: uppercase;
+        background-color: aliceblue;
+      }
+      .about-content {
+        padding: 20px 40px;
+      }
+      .content {
+        display: none;
+      }
+      [class="content active"] {
+        display: contents;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="about">
+      <div class="header">
+        <h1 class="fs-1">ABOUT</h1>
+        <p>
+          Laptop Fundamentals, Assembling and Disassembling of Laptop with
+          Parts, Working concepts
+        </p>
+      </div>
+      <div class="container">
+        <div class="image">
+          <img src="./img laptop.cms" alt="" />
+        </div>
+        <div class="content-btn">
+          <button class="btn" data-id="performance">performance</button>
+          <button class="btn" data-id="software">software</button>
+          <button class="btn" data-id="keyboard">keyboard</button>
+          <div class="about-content">
+            <div class="content active" id="performance">
+              <h2>Performance</h2>
+              <p>
+                12th Generation Intel® Core™ i7 processor Windows 11 Pro 34.3 cm
+                (13.5) diagonal, WUXGA+ (1920 x 1280), touch, IPS, BrightView,
+                1000 nits, 72% NTSC, HP Sure View integrated privacy screen
+                Intel® Iris® Xᵉ Graphics 32 GB LPDDR5-6400 MHz RAM (onboard)
+                Weighs: Starting at 0.99 kg
+              </p>
+            </div>
+            <div class="content" id="software">
+              <h2>Software</h2>
+              <p>
+                System information tools are software programs that gather all
+                the important, but hard to come by, details about the hardware
+                in your computer system. This sort of data is very helpful to
+                someone helping you with a problem with your computer.
+              </p>
+            </div>
+            <div class="content" id="keyboard">
+              <h2>Keyboard</h2>
+              <p>
+                A keyboard is for putting information including letters, words
+                and numbers into your computer. You press the individual buttons
+                on the keyboard when you type. The number keys across the top of
+                the keyboard are also found on the right of the keyboard. The
+                letter keys are in the centre of the keyboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let btns = document.querySelectorAll(".btn");
+      let about = document.querySelector(".container");
+      let para = document.querySelectorAll(".content");
+      about.addEventListener("click", function (e) {
+        let id = e.target.dataset.id;
+        if (id) {
+          btns.forEach(function (btn) {
+            btn.classList.remove("active");
+          });
+          e.target.classList.add("active");
+          para.forEach(function (product) {
+            product.classList.remove("active");
+          });
+          const element = document.getElementById(id);
+          element.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>
